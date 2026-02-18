@@ -55,3 +55,34 @@ Production-ready repository for a one-person plumbing business on Odoo 17 Commun
 - `AUTOMATION_RULES.md`
 - `HOW_TO_USE_TABLET.md`
 - `HOW_TO_ADJUST_ESTIMATOR.md`
+
+
+## Branding & UI (instalacje24_theme)
+- Zainstaluj moduł `instalacje24_theme`, aby aktywować branding (navbar, dashboard cards, tablet header, dark mode, premium PDF, splash).
+- Umieść logo firmy w `branding/logo.png` (repo root). Jeśli brak logo, moduł użyje neutralnego fallbacku kolorów.
+- Kolory marki i zasady znajdziesz w `BRAND_COLORS.md` i `BRAND_GUIDE.md`.
+- Konfiguracja podpisu email/wizytówki/kolorów: **Ustawienia > Instalacje24 Branding**.
+
+
+## Installation fix (Odoo 17)
+Resolved startup error:
+`External ID not found in the system: instalacje24_terrain.action_instalacje24_service_template`.
+
+### Root cause
+`instalacje24_terrain/views/menu_views.xml` was loaded before views that define action IDs.
+On clean databases, menu XML referenced actions that were not loaded yet.
+
+### Fix
+- Kept XML IDs unchanged (data compatibility).
+- Reordered `instalacje24_terrain` manifest data load so action/view files load before `menu_views.xml`.
+- Bumped module version to `17.0.2.1.0`.
+
+### Safe upgrade steps
+1. Update module code in your addons path.
+2. Restart Odoo service.
+3. Upgrade modules in order:
+   - `instalacje24_terrain`
+   - `instalacje24_office`
+   - `instalacje24_ai_quote` (if installed)
+   - `instalacje24_theme` (if installed)
+4. If Apps list is stale, run **Update Apps List** first.
