@@ -1,0 +1,8 @@
+<templates xml:space="preserve">
+    <t t-name="instalacje24_theme.SplashPlaceholder">
+        <div class="i24-splash-screen">
+            <div class="i24-splash-drop"/>
+            <img src="/web/image/res.company/1/logo" class="i24-splash-logo" alt="Instalacje24"/>
+        </div>
+    </t>
+</templates>

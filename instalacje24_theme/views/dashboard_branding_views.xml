@@ -1,0 +1,21 @@
+<odoo>
+    <record id="view_instalacje24_dashboard_branding" model="ir.ui.view">
+        <field name="name">instalacje24.dashboard.branding</field>
+        <field name="model">instalacje24.dashboard</field>
+        <field name="inherit_id" ref="instalacje24_office.view_instalacje24_dashboard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <div class="i24-dashboard-hero mb16">
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="/web/image/res.company/1/logo" alt="Instalacje24" class="i24-dashboard-logo"/>
+                        <div>
+                            <h2>Panel Instalacje24</h2>
+                            <p>Najważniejsze wskaźniki tygodnia z oznaczeniami kolorystycznymi.</p>
+                        </div>
+                        <img src="/instalacje24_theme/static/src/img/plumbing_icons.svg" alt="Ikony hydrauliczne" class="i24-dashboard-icons"/>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
