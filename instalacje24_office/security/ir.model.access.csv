@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_instalacje24_lead_user,instalacje24.lead user,model_instalacje24_lead,instalacje24_office.group_instalacje24_user,1,1,1,1
+access_instalacje24_quote_user,instalacje24.quote user,model_instalacje24_quote,instalacje24_office.group_instalacje24_user,1,1,1,1
+access_instalacje24_dashboard_user,instalacje24.dashboard user,model_instalacje24_dashboard,instalacje24_office.group_instalacje24_user,1,0,1,0
+access_instalacje24_quick_job_wizard_user,instalacje24.quick.job.wizard user,model_instalacje24_quick_job_wizard,instalacje24_office.group_instalacje24_user,1,1,1,1
+access_instalacje24_house_estimator_user,instalacje24.house.estimator user,model_instalacje24_house_estimator,instalacje24_office.group_instalacje24_user,1,1,1,1
+access_instalacje24_website_lead_user,instalacje24.website.lead user,model_instalacje24_website_lead,instalacje24_office.group_instalacje24_user,1,1,1,1

@@ -1,0 +1,30 @@
+<odoo>
+    <menuitem id="menu_instalacje24_root" name="Instalacje24" sequence="10" groups="instalacje24_office.group_instalacje24_user"/>
+    <menuitem id="menu_instalacje24_office" name="Biuro" parent="menu_instalacje24_root" sequence="10"/>
+
+    <record id="action_instalacje24_lead" model="ir.actions.act_window">
+        <field name="name">CRM hydraulika</field>
+        <field name="res_model">instalacje24.lead</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+    </record>
+    <menuitem id="menu_instalacje24_lead" name="Leady" parent="menu_instalacje24_office" action="action_instalacje24_lead" sequence="10"/>
+
+    <record id="action_instalacje24_quote" model="ir.actions.act_window">
+        <field name="name">Wyceny</field>
+        <field name="res_model">instalacje24.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_instalacje24_quote" name="Kalkulator" parent="menu_instalacje24_office" action="action_instalacje24_quote" sequence="20"/>
+
+    <record id="action_instalacje24_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard tygodnia</field>
+        <field name="res_model">instalacje24.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+    <menuitem id="menu_instalacje24_dashboard" name="Dashboard" parent="menu_instalacje24_office" action="action_instalacje24_dashboard" sequence="5"/>
+
+    <menuitem id="menu_instalacje24_quick_wizard" name="Szybkie nowe zlecenie" parent="menu_instalacje24_office" action="action_instalacje24_quick_job_wizard" sequence="6"/>
+    <menuitem id="menu_instalacje24_estimator" name="Estimator domu" parent="menu_instalacje24_office" action="action_instalacje24_house_estimator" sequence="30"/>
+    <menuitem id="menu_instalacje24_website_lead" name="Leady WWW" parent="menu_instalacje24_office" action="action_instalacje24_website_lead" sequence="40"/>
+</odoo>

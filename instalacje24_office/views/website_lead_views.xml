@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_instalacje24_website_lead_tree" model="ir.ui.view">
+        <field name="name">instalacje24.website.lead.tree</field>
+        <field name="model">instalacje24.website.lead</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="client_name"/>
+                <field name="phone"/>
+                <field name="source"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_instalacje24_website_lead_form" model="ir.ui.view">
+        <field name="name">instalacje24.website.lead.form</field>
+        <field name="model">instalacje24.website.lead</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_convert" type="object" string="Konwertuj do leada" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="client_name"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                        <field name="source"/>
+                        <field name="state"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_instalacje24_website_lead" model="ir.actions.act_window">
+        <field name="name">Leady WWW</field>
+        <field name="res_model">instalacje24.website.lead</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

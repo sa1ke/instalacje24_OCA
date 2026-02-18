@@ -1,0 +1,72 @@
+.instalacje24_mobile_form {
+  .o_form_sheet_bg {
+    background: #f3f5f7;
+  }
+
+  .inst24-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .o_form_statusbar,
+  .inst24-sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #fff;
+  }
+
+  .btn,
+  .btn-lg,
+  .inst24-big {
+    min-height: 64px;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 14px;
+  }
+
+  .inst24-floating-finish {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1000;
+    min-width: 220px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  }
+
+  .inst24-offline-indicator {
+    background: #ff9800;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1200px) {
+  .instalacje24_mobile_form .inst24-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .instalacje24_mobile_form {
+    color: #e7e7e7;
+
+    .o_form_sheet_bg,
+    .o_form_sheet {
+      background: #1f1f1f !important;
+      color: #e7e7e7;
+    }
+
+    .btn {
+      border-color: #555;
+    }
+
+    .inst24-sticky-header {
+      background: #262626;
+    }
+  }
+}
