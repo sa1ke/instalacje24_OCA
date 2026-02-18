@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_instalacje24_dashboard_form" model="ir.ui.view">
+        <field name="name">instalacje24.dashboard.form</field>
+        <field name="model">instalacje24.dashboard</field>
+        <field name="arch" type="xml">
+            <form create="false" edit="false" delete="false">
+                <sheet>
+                    <group string="Tydzień">
+                        <field name="revenue_week"/>
+                        <field name="profit_week"/>
+                        <field name="jobs_week"/>
+                        <field name="km_week"/>
+                        <field name="avg_job_time"/>
+                        <field name="complaints_rate"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

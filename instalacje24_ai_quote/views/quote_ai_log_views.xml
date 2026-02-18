@@ -1,0 +1,35 @@
+<odoo>
+    <record id="view_instalacje24_quote_form_ai" model="ir.ui.view">
+        <field name="name">instalacje24.quote.form.ai</field>
+        <field name="model">instalacje24.quote</field>
+        <field name="inherit_id" ref="instalacje24_office.view_instalacje24_quote_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_ai_suggest_quote" type="object" string="AI Suggest Quote" class="btn-secondary"/>
+            </xpath>
+            <xpath expr="//sheet" position="inside">
+                <group string="AI">
+                    <field name="ai_suggestion" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_quote_ai_log_tree" model="ir.ui.view">
+        <field name="name">instalacje24.quote.ai.log.tree</field>
+        <field name="model">instalacje24.quote.ai.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="quote_id"/>
+                <field name="source"/>
+                <field name="suggestion"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_instalacje24_quote_ai_log" model="ir.actions.act_window">
+        <field name="name">AI Log wycen</field>
+        <field name="res_model">instalacje24.quote.ai.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

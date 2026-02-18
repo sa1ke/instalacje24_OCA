@@ -1,0 +1,55 @@
+<odoo>
+    <record id="view_instalacje24_house_estimator_tree" model="ir.ui.view">
+        <field name="name">instalacje24.house.estimator.tree</field>
+        <field name="model">instalacje24.house.estimator</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="house_size_m2"/>
+                <field name="estimated_total_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_house_estimator_form" model="ir.ui.view">
+        <field name="name">instalacje24.house.estimator.form</field>
+        <field name="model">instalacje24.house.estimator</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_create_quote" type="object" string="Create Quote" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="house_size_m2"/>
+                            <field name="bathrooms_count"/>
+                            <field name="floors_count"/>
+                        </group>
+                        <group>
+                            <field name="heating_type"/>
+                            <field name="installation_type"/>
+                            <field name="quality_level"/>
+                        </group>
+                    </group>
+                    <group string="Wynik">
+                        <field name="estimated_material_cost" readonly="1"/>
+                        <field name="estimated_labor_hours" readonly="1"/>
+                        <field name="estimated_total_price" readonly="1"/>
+                        <field name="price_range_min" readonly="1"/>
+                        <field name="price_range_max" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_instalacje24_house_estimator" model="ir.actions.act_window">
+        <field name="name">Estimator domu</field>
+        <field name="res_model">instalacje24.house.estimator</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

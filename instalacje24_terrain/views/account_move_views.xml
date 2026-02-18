@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_move_form_instalacje24_qr" model="ir.ui.view">
+        <field name="name">account.move.form.instalacje24.qr</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//group" position="inside">
+                <field name="instalacje24_qr_payment_url" widget="url" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

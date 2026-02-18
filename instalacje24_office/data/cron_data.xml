@@ -1,0 +1,10 @@
+<odoo>
+    <record id="cron_propose_invoice_done_jobs" model="ir.cron">
+        <field name="name">Instalacje24: Auto faktura po zakończeniu</field>
+        <field name="model_id" ref="instalacje24_terrain.model_instalacje24_field_job"/>
+        <field name="state">code</field>
+        <field name="code">model.search([('state','=','done'),('invoice_id','=',False)]).action_create_invoice()</field>
+        <field name="interval_number">4</field>
+        <field name="interval_type">hours</field>
+    </record>
+</odoo>

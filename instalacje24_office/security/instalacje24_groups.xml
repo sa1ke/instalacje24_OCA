@@ -1,0 +1,6 @@
+<odoo>
+    <record id="group_instalacje24_user" model="res.groups">
+        <field name="name">Instalacje24 User</field>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+    </record>
+</odoo>

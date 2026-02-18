@@ -1,0 +1,79 @@
+<odoo>
+    <record id="view_instalacje24_lead_kanban" model="ir.ui.view">
+        <field name="name">instalacje24.lead.kanban</field>
+        <field name="model">instalacje24.lead</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div><field name="phone"/></div>
+                            <div><field name="planned_date"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_lead_tree" model="ir.ui.view">
+        <field name="name">instalacje24.lead.tree</field>
+        <field name="model">instalacje24.lead</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="phone"/>
+                <field name="problem_type"/>
+                <field name="planned_date"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_lead_calendar" model="ir.ui.view">
+        <field name="name">instalacje24.lead.calendar</field>
+        <field name="model">instalacje24.lead</field>
+        <field name="arch" type="xml">
+            <calendar date_start="planned_date" color="status" string="Plan prac">
+                <field name="name"/>
+                <field name="partner_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_lead_form" model="ir.ui.view">
+        <field name="name">instalacje24.lead.form</field>
+        <field name="model">instalacje24.lead</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_create_terrain_job" type="object" string="Utwórz zlecenie terenowe" class="btn-primary"/>
+                    <button name="action_mark_done" type="object" string="Zakończ i fakturuj" class="btn-secondary"/>
+                    <button name="action_view_customer_history" type="object" string="Historia klienta" class="btn-secondary"/>
+                    <field name="status" widget="statusbar" statusbar_visible="new,quoted,planned,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="phone"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="problem_type"/>
+                            <field name="planned_date"/>
+                            <field name="terrain_job_id"/>
+                            <field name="quote_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

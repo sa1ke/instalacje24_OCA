@@ -1,0 +1,28 @@
+<odoo>
+    <template id="report_saleorder_document_premium_light" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//h2" position="replace">
+            <div class="i24-report-header i24-light">
+                <img src="/web/image/res.company/1/logo" alt="Logo" class="i24-report-logo"/>
+                <h2>Oferta premium</h2>
+            </div>
+        </xpath>
+        <xpath expr="//table[contains(@class,'table')][1]" position="before">
+            <h4 class="i24-section-title">Zakres prac i materiały</h4>
+        </xpath>
+        <xpath expr="//div[@id='terms']" position="before">
+            <div class="i24-report-block">
+                <h4 class="i24-section-title">Zdjęcia i warunki gwarancji</h4>
+                <p>Sekcja przygotowana pod zdjęcia przed/po oraz warunki gwarancji realizacji.</p>
+            </div>
+        </xpath>
+    </template>
+
+    <record id="action_report_saleorder_dark" model="ir.actions.report">
+        <field name="name">Oferta premium (dark)</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sale.report_saleorder</field>
+        <field name="print_report_name">'Oferta-dark-%s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+    </record>
+</odoo>

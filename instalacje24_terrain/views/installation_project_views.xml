@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_instalacje24_installation_project_tree" model="ir.ui.view">
+        <field name="name">instalacje24.installation.project.tree</field>
+        <field name="model">instalacje24.installation.project</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="stage"/>
+                <field name="budget_amount"/>
+                <field name="real_cost_amount"/>
+                <field name="margin_amount"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_instalacje24_installation_project_form" model="ir.ui.view">
+        <field name="name">instalacje24.installation.project.form</field>
+        <field name="model">instalacje24.installation.project</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="stage"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="budget_amount"/>
+                            <field name="real_cost_amount" readonly="1"/>
+                            <field name="margin_amount" readonly="1"/>
+                        </group>
+                    </group>
+                    <field name="checklist"/>
+                    <field name="material_plan_ids">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="purchase_price"/>
+                        </tree>
+                    </field>
+                    <field name="drawing_ids" widget="many2many_binary"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_instalacje24_installation_project_calendar" model="ir.ui.view">
+        <field name="name">instalacje24.installation.project.calendar</field>
+        <field name="model">instalacje24.installation.project</field>
+        <field name="arch" type="xml">
+            <calendar date_start="start_date" date_stop="end_date" color="stage" string="Timeline projektu">
+                <field name="name"/>
+                <field name="partner_id"/>
+            </calendar>
+        </field>
+    </record>
+    <record id="action_instalacje24_installation_project" model="ir.actions.act_window">
+        <field name="name">Projekty instalacji</field>
+        <field name="res_model">instalacje24.installation.project</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+</odoo>

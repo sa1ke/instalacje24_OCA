@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_res_config_settings_instalacje24_theme" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.instalacje24.theme</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Instalacje24 Branding" name="instalacje24_theme" groups="base.group_system">
+                    <block title="Logo i paleta">
+                        <setting string="Logo firmy" help="Podmień logo używane w PDF, email i splash screen.">
+                            <field name="instalacje24_brand_logo" widget="image" class="oe_avatar"/>
+                        </setting>
+                        <setting string="Kolory marki">
+                            <div class="content-group row mt16">
+                                <div class="col-lg-3"><field name="instalacje24_brand_primary"/></div>
+                                <div class="col-lg-3"><field name="instalacje24_brand_secondary"/></div>
+                                <div class="col-lg-3"><field name="instalacje24_brand_accent"/></div>
+                                <div class="col-lg-3"><field name="instalacje24_brand_background"/></div>
+                            </div>
+                        </setting>
+                    </block>
+                    <block title="Wizytówka i podpis email">
+                        <setting string="Linia usług"><field name="instalacje24_services_line"/></setting>
+                        <setting string="Telefon"><field name="instalacje24_business_phone"/></setting>
+                        <setting string="Strona WWW"><field name="instalacje24_business_website"/></setting>
+                        <setting string="WhatsApp"><field name="instalacje24_whatsapp"/></setting>
+                        <setting string="Google Maps"><field name="instalacje24_maps"/></setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>
