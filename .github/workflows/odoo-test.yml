@@ -1,0 +1,47 @@
+name: Test Odoo 17 Modules
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  odoo-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: odoo
+          POSTGRES_PASSWORD: odoo
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U odoo"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone Odoo 17
+        run: git clone https://github.com/odoo/odoo --depth 1 --branch 17.0
+
+      - name: Install python deps
+        run: |
+          sudo apt update
+          sudo apt install -y python3-pip
+          pip install psycopg2-binary
+
+      - name: Install modules test
+        run: |
+          cd odoo
+          ./odoo-bin -d test_db \
+          --db_host=localhost \
+          --db_user=odoo \
+          --db_password=odoo \
+          --addons-path=addons,../ \
+          -i instalacje24_terrain,instalacje24_office,instalacje24_ai_quote,instalacje24_theme \
+          --stop-after-init
