@@ -1,0 +1,56 @@
+<odoo>
+    <record id="cron_generate_recurring_jobs" model="ir.cron">
+        <field name="name">Instalacje24: Cykliczne zlecenia</field>
+        <field name="model_id" ref="model_instalacje24_field_job"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_generate_recurring_jobs()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+
+    <record id="cron_visit_reminder_24h" model="ir.cron">
+        <field name="name">Instalacje24: Przypomnienie wizyty 24h</field>
+        <field name="model_id" ref="model_instalacje24_field_job"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_visit_reminder_24h()</field>
+        <field name="interval_number">12</field>
+        <field name="interval_type">hours</field>
+    </record>
+
+    <record id="cron_unpaid_7d" model="ir.cron">
+        <field name="name">Instalacje24: Niezapłacone po 7 dniach</field>
+        <field name="model_id" ref="model_instalacje24_field_job"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_unpaid_7d_reminder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+
+    <record id="cron_seasonal_reminders" model="ir.cron">
+        <field name="name">Instalacje24: Przypomnienia sezonowe</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_seasonal_reminders(env)</field>
+        <field name="interval_number">30</field>
+        <field name="interval_type">days</field>
+    </record>
+
+    <record id="cron_warranty_expiring" model="ir.cron">
+        <field name="name">Instalacje24: Kończące się gwarancje</field>
+        <field name="model_id" ref="model_instalacje24_warranty"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_mark_expiring()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+
+
+    <record id="cron_weekly_backup" model="ir.cron">
+        <field name="name">Instalacje24: Tygodniowy backup</field>
+        <field name="model_id" ref="model_instalacje24_backup_service"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_weekly_backup(env)</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+    </record>
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+    <record id="demo_partner_kowalski" model="res.partner">
+        <field name="name">Jan Kowalski</field>
+        <field name="phone">+48500100100</field>
+        <field name="street">ul. Kwiatowa 10</field>
+        <field name="city">Kraków</field>
+        <field name="seasonal_reminder">True</field>
+        <field name="seasonal_reminder_month">9</field>
+    </record>
+
+    <record id="demo_lead_leak" model="instalacje24.lead">
+        <field name="name">Wyciek pod zlewem</field>
+        <field name="partner_id" ref="demo_partner_kowalski"/>
+        <field name="phone">+48500100100</field>
+        <field name="address">Kraków, ul. Kwiatowa 10</field>
+        <field name="problem_type">leak</field>
+        <field name="description">Woda kapie spod syfonu kuchennego.</field>
+        <field name="planned_date">2026-03-10 09:00:00</field>
+    </record>
+
+    <record id="demo_quote_leak" model="instalacje24.quote">
+        <field name="lead_id" ref="demo_lead_leak"/>
+        <field name="service_type">quick</field>
+        <field name="labor_hours">1.5</field>
+        <field name="hourly_rate">180</field>
+        <field name="material_cost">90</field>
+        <field name="travel_km">8</field>
+        <field name="travel_rate">2.5</field>
+        <field name="margin_percent">25</field>
+        <field name="vat_percent">23</field>
+    </record>
+
+    <record id="demo_house_estimator" model="instalacje24.house.estimator">
+        <field name="name">Dom 160 m2 - kalkulacja</field>
+        <field name="partner_id" ref="demo_partner_kowalski"/>
+        <field name="house_size_m2">160</field>
+        <field name="bathrooms_count">2</field>
+        <field name="floors_count">2</field>
+    </record>
+
+    <record id="demo_website_lead" model="instalacje24.website.lead">
+        <field name="name">Formularz WWW - awaria kotła</field>
+        <field name="client_name">Marek Lis</field>
+        <field name="phone">+48700111222</field>
+        <field name="address">Łódź, ul. Słoneczna 11</field>
+        <field name="description">Piec nie grzeje, potrzebny szybki kontakt.</field>
+    </record>
+</odoo>

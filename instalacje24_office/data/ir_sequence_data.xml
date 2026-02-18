@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_instalacje24_quote" model="ir.sequence">
+        <field name="name">Instalacje24 Quote</field>
+        <field name="code">instalacje24.quote</field>
+        <field name="prefix">WYC/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>
