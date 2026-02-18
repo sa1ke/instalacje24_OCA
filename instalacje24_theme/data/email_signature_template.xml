@@ -1,0 +1,21 @@
+<odoo noupdate="1">
+    <record id="mail_template_instalacje24_signature" model="mail.template">
+        <field name="name">Instalacje24 - podpis email</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="subject">Podpis email Instalacje24</field>
+        <field name="body_html" type="html">
+            <table style="font-family:Arial,sans-serif;font-size:13px;color:#0E3A53;">
+                <tr>
+                    <td style="padding-right:12px;"><img src="/web/image/res.company/1/logo" alt="logo" style="height:42px;"/></td>
+                    <td>
+                        <strong>Instalacje24</strong><br/>
+                        <a href="tel:+48600000000">+48 600 000 000</a> •
+                        <a href="https://instalacje24.example.com">instalacje24.example.com</a><br/>
+                        Instalacje wod-kan • Ogrzewanie • Serwis<br/>
+                        <a href="https://wa.me/48600000000">WhatsApp</a> | <a href="https://maps.google.com">Maps</a>
+                    </td>
+                </tr>
+            </table>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <template id="report_business_card_90x50">
+        <t t-call="web.basic_layout">
+            <div class="page i24-business-card i24-size-90x50">
+                <div class="i24-card-front">
+                    <img src="/web/image/res.company/1/logo" class="i24-card-logo" alt="Logo"/>
+                    <p t-esc="res_company.name"/>
+                </div>
+                <div class="i24-card-back">
+                    <div class="i24-qr-placeholder">QR</div>
+                    <p t-esc="env['ir.config_parameter'].sudo().get_param('instalacje24_theme.services_line', '')"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <record id="action_report_business_card" model="ir.actions.report">
+        <field name="name">Wizytówka 90x50mm</field>
+        <field name="model">res.company</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">instalacje24_theme.report_business_card_90x50</field>
+        <field name="binding_model_id" ref="base.model_res_company"/>
+    </record>
+</odoo>

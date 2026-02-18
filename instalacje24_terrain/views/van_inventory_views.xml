@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_instalacje24_van_inventory_tree" model="ir.ui.view">
+        <field name="name">instalacje24.van.inventory.tree</field>
+        <field name="model">instalacje24.van.inventory</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="min_quantity"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_instalacje24_van_inventory" model="ir.actions.act_window">
+        <field name="name">Magazyn busa</field>
+        <field name="res_model">instalacje24.van.inventory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

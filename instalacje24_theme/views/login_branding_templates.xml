@@ -1,0 +1,9 @@
+<odoo>
+    <template id="instalacje24_login_branding" inherit_id="web.login_layout" name="Instalacje24 login branding">
+        <xpath expr="//div[contains(@class,'card-body')]/div[1]" position="before">
+            <div class="text-center i24-login-brand mb-3">
+                <img src="/web/image/res.company/1/logo" alt="Instalacje24" class="i24-login-logo"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

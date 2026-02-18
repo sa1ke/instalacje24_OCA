@@ -1,0 +1,36 @@
+{
+    "name": "Instalacje24 Terrain",
+    "summary": "Teren hydraulika: zlecenia mobilne, czas pracy, materiały i dokumentacja",
+    "version": "17.0.2.1.0",
+    "category": "Field Service",
+    "author": "Instalacje24",
+    "license": "LGPL-3",
+    "depends": ["base", "contacts", "sale_management", "account", "mail", "web"],
+    "data": [
+        "security/instalacje24_groups.xml",
+        "security/ir.model.access.csv",
+        "data/sequence_data.xml",
+        "data/cron_data.xml",
+        "views/field_job_views.xml",
+        "views/material_views.xml",
+        "views/service_template_views.xml",
+        "views/warranty_views.xml",
+        "views/complaint_views.xml",
+        "views/installation_project_views.xml",
+        "views/van_inventory_views.xml",
+        "views/photo_portfolio_views.xml",
+        "views/offline_views.xml",
+        "views/partner_views.xml",
+        "views/account_move_views.xml",
+        "views/menu_views.xml",
+    ],
+    "demo": [
+        "demo/demo_data.xml",
+    ],
+    "assets": {
+        "web.assets_backend": [
+            "instalacje24_terrain/static/src/scss/terrain_mobile.scss",
+        ],
+    },
+    "application": True,
+}

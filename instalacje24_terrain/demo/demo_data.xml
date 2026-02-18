@@ -1,0 +1,81 @@
+<odoo>
+    <record id="demo_product_valve" model="product.product">
+        <field name="name">Zawór kulowy 1/2</field>
+        <field name="list_price">25</field>
+        <field name="standard_price">12</field>
+        <field name="type">consu</field>
+    </record>
+
+    <record id="demo_product_pipe" model="product.product">
+        <field name="name">Rura PEX 16mm</field>
+        <field name="list_price">12</field>
+        <field name="standard_price">6</field>
+        <field name="type">consu</field>
+    </record>
+
+    <record id="demo_template_quick" model="instalacje24.service.template">
+        <field name="name">Szybka naprawa - standard</field>
+        <field name="fixed_price">350</field>
+        <field name="default_hours">1.5</field>
+    </record>
+
+    <record id="demo_template_quick_mat" model="instalacje24.service.template.material">
+        <field name="template_id" ref="demo_template_quick"/>
+        <field name="product_id" ref="demo_product_valve"/>
+        <field name="quantity">1</field>
+    </record>
+
+    <record id="demo_partner_nowak" model="res.partner">
+        <field name="name">Anna Nowak</field>
+        <field name="phone">+48600100200</field>
+        <field name="street">ul. Długa 5</field>
+        <field name="city">Warszawa</field>
+    </record>
+
+    <record id="demo_field_job" model="instalacje24.field.job">
+        <field name="name">Serwis pieca gazowego</field>
+        <field name="partner_id" ref="demo_partner_nowak"/>
+        <field name="phone">+48600100200</field>
+        <field name="address">Warszawa, ul. Długa 5</field>
+        <field name="description">Coroczny przegląd kotła.</field>
+        <field name="planned_start">2026-03-12 10:00:00</field>
+        <field name="payment_status">not_paid</field>
+        <field name="recurring">True</field>
+        <field name="next_recurring_date">2027-03-12</field>
+        <field name="service_template_id" ref="demo_template_quick"/>
+    </record>
+
+    <record id="demo_field_job_material_1" model="instalacje24.field.material">
+        <field name="job_id" ref="demo_field_job"/>
+        <field name="product_id" ref="demo_product_valve"/>
+        <field name="quantity">2</field>
+        <field name="purchase_price">10</field>
+    </record>
+
+    <record id="demo_warranty_1" model="instalacje24.warranty">
+        <field name="job_id" ref="demo_field_job"/>
+        <field name="start_date">2026-03-12</field>
+        <field name="duration_months">12</field>
+    </record>
+
+    <record id="demo_complaint_1" model="instalacje24.complaint">
+        <field name="name">Nieszczelność po serwisie</field>
+        <field name="partner_id" ref="demo_partner_nowak"/>
+        <field name="job_id" ref="demo_field_job"/>
+        <field name="state">new</field>
+    </record>
+
+    <record id="demo_van_inventory_pipe" model="instalacje24.van.inventory">
+        <field name="product_id" ref="demo_product_pipe"/>
+        <field name="quantity">30</field>
+        <field name="min_quantity">10</field>
+        <field name="note">Stan startowy</field>
+    </record>
+
+    <record id="demo_portfolio_1" model="instalacje24.photo.portfolio">
+        <field name="name">Wymiana syfonu - kuchnia</field>
+        <field name="job_id" ref="demo_field_job"/>
+        <field name="partner_id" ref="demo_partner_nowak"/>
+        <field name="note">Przykładowa realizacja do portfolio.</field>
+    </record>
+</odoo>

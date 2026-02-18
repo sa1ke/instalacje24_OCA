@@ -1,0 +1,20 @@
+<odoo>
+    <record id="group_instalacje24_user" model="res.groups">
+        <field name="name">Instalacje24 User</field>
+        <field name="category_id" ref="base.module_category_services"/>
+    </record>
+
+    <record id="field_job_rule_own" model="ir.rule">
+        <field name="name">Own field jobs only</field>
+        <field name="model_id" ref="model_instalacje24_field_job"/>
+        <field name="groups" eval="[(4, ref('instalacje24_terrain.group_instalacje24_user'))]"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+    </record>
+
+    <record id="complaint_rule_own_partner_jobs" model="ir.rule">
+        <field name="name">Own complaints by assigned jobs</field>
+        <field name="model_id" ref="model_instalacje24_complaint"/>
+        <field name="groups" eval="[(4, ref('instalacje24_terrain.group_instalacje24_user'))]"/>
+        <field name="domain_force">['|',('job_id','=',False),('job_id.user_id','=',user.id)]</field>
+    </record>
+</odoo>

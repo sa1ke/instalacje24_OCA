@@ -1,0 +1,8 @@
+<odoo>
+    <template id="instalacje24_tablet_splash" name="Instalacje24 Tablet Splash">
+        <div class="i24-splash-screen" role="status" aria-label="Ładowanie aplikacji Instalacje24">
+            <div class="i24-splash-drop"/>
+            <img src="/web/image/res.company/1/logo" alt="Instalacje24" class="i24-splash-logo"/>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,99 @@
+$o-i24-primary: #0E3A53;
+$o-i24-secondary: #2DB3E8;
+$o-i24-accent: #F59C2D;
+$o-i24-bg: #E6ECEF;
+
+.o_main_navbar {
+  background: linear-gradient(90deg, $o-i24-primary, darken($o-i24-primary, 7%));
+  .o_menu_brand { font-weight: 700; }
+}
+
+.btn {
+  border-radius: 10px;
+  min-height: 44px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: $o-i24-primary;
+  border-color: $o-i24-primary;
+}
+
+.o_form_view .badge {
+  &.text-bg-success { background: #2f855a !important; }
+  &.text-bg-warning { background: $o-i24-accent !important; }
+  &.text-bg-danger { background: #c53030 !important; }
+}
+
+.i24-dashboard-hero {
+  background: linear-gradient(135deg, rgba($o-i24-primary, .96), rgba($o-i24-secondary,.85));
+  color: #fff;
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.i24-dashboard-logo,
+.i24-tablet-logo,
+.i24-login-logo,
+.i24-report-logo,
+.i24-card-logo {
+  max-height: 56px;
+  width: auto;
+}
+
+.i24-tablet-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $o-i24-bg;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba($o-i24-primary, .15);
+}
+
+.i24-tablet-title { color: $o-i24-primary; font-weight: 700; }
+
+.i24-report-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 3px solid $o-i24-primary;
+  padding-bottom: 8px;
+}
+.i24-section-title { color: $o-i24-accent; margin-top: 10px; }
+.i24-report-block { border: 1px solid #ddd; padding: 8px; border-radius: 8px; }
+.i24-report-dark { background: #1f2937; color: #f4f4f4; }
+
+.i24-business-card {
+  .i24-card-front, .i24-card-back {
+    min-height: 50mm;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  .i24-card-back { background: $o-i24-primary; color: #fff; }
+  .i24-qr-placeholder {
+    width: 22mm;
+    height: 22mm;
+    background: #fff;
+    color: $o-i24-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .o_web_client {
+    --i24-card-bg: #111827;
+    --i24-text: #e5e7eb;
+    background: #0b1220;
+    color: var(--i24-text);
+  }
+}
+
+.i24-dashboard-icons { max-height: 48px; margin-top: 10px; }

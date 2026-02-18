@@ -1,0 +1,28 @@
+<odoo>
+    <menuitem id="menu_instalacje24_root_terrain" name="Instalacje24" sequence="9" groups="instalacje24_terrain.group_instalacje24_user"/>
+    <menuitem id="menu_instalacje24_terrain" name="Teren" parent="menu_instalacje24_root_terrain" sequence="10"/>
+
+    <record id="action_instalacje24_field_job" model="ir.actions.act_window">
+        <field name="name">Zlecenia terenowe</field>
+        <field name="res_model">instalacje24.field.job</field>
+        <field name="view_mode">kanban,tree,form,pivot,graph</field>
+    </record>
+    <menuitem id="menu_instalacje24_field_job" name="Zlecenia" parent="menu_instalacje24_terrain" action="action_instalacje24_field_job"/>
+
+    <record id="action_instalacje24_material" model="ir.actions.act_window">
+        <field name="name">Materiały w zleceniach</field>
+        <field name="res_model">instalacje24.field.material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_instalacje24_material" name="Materiały" parent="menu_instalacje24_terrain" action="action_instalacje24_material" sequence="20"/>
+
+    <menuitem id="menu_instalacje24_service_template" name="Szablony usług" parent="menu_instalacje24_terrain" action="action_instalacje24_service_template" sequence="30"/>
+    <menuitem id="menu_instalacje24_warranty" name="Gwarancje" parent="menu_instalacje24_terrain" action="action_instalacje24_warranty" sequence="40"/>
+    <menuitem id="menu_instalacje24_complaint" name="Reklamacje" parent="menu_instalacje24_terrain" action="action_instalacje24_complaint" sequence="50"/>
+    <menuitem id="menu_instalacje24_install_project" name="Projekty instalacji" parent="menu_instalacje24_terrain" action="action_instalacje24_installation_project" sequence="60"/>
+    <menuitem id="menu_instalacje24_van_inventory" name="Magazyn busa" parent="menu_instalacje24_terrain" action="action_instalacje24_van_inventory" sequence="70"/>
+    <menuitem id="menu_instalacje24_photo_portfolio" name="Portfolio" parent="menu_instalacje24_terrain" action="action_instalacje24_photo_portfolio" sequence="80"/>
+    <menuitem id="menu_instalacje24_offline" name="Szkice offline" parent="menu_instalacje24_terrain" action="action_instalacje24_offline_draft" sequence="90"/>
+    <menuitem id="menu_instalacje24_errors" name="Log błędów" parent="menu_instalacje24_terrain" action="action_instalacje24_error_log" sequence="91"/>
+    <menuitem id="menu_instalacje24_backup" name="Backup ZIP/CSV" parent="menu_instalacje24_terrain" action="action_instalacje24_backup_export" sequence="92"/>
+</odoo>

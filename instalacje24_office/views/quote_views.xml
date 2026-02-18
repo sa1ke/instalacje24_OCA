@@ -1,0 +1,54 @@
+<odoo>
+    <record id="view_instalacje24_quote_tree" model="ir.ui.view">
+        <field name="name">instalacje24.quote.tree</field>
+        <field name="model">instalacje24.quote</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="lead_id"/>
+                <field name="service_type"/>
+                <field name="total_net"/>
+                <field name="total_gross"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_quote_form" model="ir.ui.view">
+        <field name="name">instalacje24.quote.form</field>
+        <field name="model">instalacje24.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate_quote" type="object" string="Generuj ofertę" class="btn-primary"/>
+                    <button name="action_set_quick_repair" type="object" string="Szybka cena" class="btn-secondary"/>
+                    <button name="action_set_boiler_service" type="object" string="Cena serwis kotła" class="btn-secondary"/>
+                    <button name="action_set_installation" type="object" string="Cena montaż" class="btn-secondary"/>
+                    <button name="action_print_offer_pdf" type="object" string="PDF oferty" class="btn-secondary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="lead_id"/>
+                        <field name="service_type"/>
+                    </group>
+                    <group string="Kalkulacja">
+                        <group>
+                            <field name="labor_hours"/>
+                            <field name="hourly_rate"/>
+                            <field name="material_cost"/>
+                            <field name="travel_km"/>
+                            <field name="travel_rate"/>
+                        </group>
+                        <group>
+                            <field name="margin_percent"/>
+                            <field name="vat_percent"/>
+                            <field name="total_net" readonly="1"/>
+                            <field name="total_gross" readonly="1"/>
+                            <field name="sale_order_id" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

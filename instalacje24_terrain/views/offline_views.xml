@@ -1,0 +1,59 @@
+<odoo>
+    <record id="view_instalacje24_offline_draft_tree" model="ir.ui.view">
+        <field name="name">instalacje24.offline.draft.tree</field>
+        <field name="model">instalacje24.offline.draft</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_instalacje24_offline_draft" model="ir.actions.act_window">
+        <field name="name">Szkice offline</field>
+        <field name="res_model">instalacje24.offline.draft</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_instalacje24_error_log_tree" model="ir.ui.view">
+        <field name="name">instalacje24.error.log.tree</field>
+        <field name="model">instalacje24.error.log</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="create_date"/>
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_instalacje24_error_log" model="ir.actions.act_window">
+        <field name="name">Log błędów</field>
+        <field name="res_model">instalacje24.error.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_instalacje24_backup_export_form" model="ir.ui.view">
+        <field name="name">instalacje24.backup.export.form</field>
+        <field name="model">instalacje24.backup.export</field>
+        <field name="arch" type="xml">
+            <form string="Backup CSV/ZIP">
+                <group>
+                    <field name="name"/>
+                    <field name="file_data" filename="name" readonly="1"/>
+                </group>
+                <footer>
+                    <button name="action_generate" type="object" string="Eksportuj ZIP" class="btn-primary"/>
+                    <button string="Zamknij" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_instalacje24_backup_export" model="ir.actions.act_window">
+        <field name="name">Backup ZIP/CSV</field>
+        <field name="res_model">instalacje24.backup.export</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
