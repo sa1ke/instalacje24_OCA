@@ -1,0 +1,144 @@
+<odoo>
+    <record id="view_instalacje24_field_job_kanban" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.kanban</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_mobile">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div><field name="partner_id"/></div>
+                            <div><field name="address"/></div>
+                            <div class="text-muted"><field name="planned_start"/></div>
+                            <div><field name="margin_alert" widget="boolean_toggle"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_field_job_tree" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.tree</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="planned_start"/>
+                <field name="duration"/>
+                <field name="payment_status"/>
+                <field name="state"/>
+                <field name="profit_amount"/>
+                <field name="margin_percent"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_field_job_form" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.form</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="arch" type="xml">
+            <form class="instalacje24_mobile_form">
+                <header class="inst24-sticky-header">
+                    <button name="action_start_work" type="object" string="START" class="btn-primary inst24-big"/>
+                    <button name="action_stop_work" type="object" string="STOP" class="btn-danger inst24-big"/>
+                    <button name="action_open_maps" type="object" string="Google Maps" class="btn-secondary"/>
+                    <button name="action_open_route" type="object" string="Trasa" class="btn-secondary"/>
+                    <button name="action_send_on_my_way" type="object" string="Jadę" class="btn-secondary"/>
+                    <button name="action_send_finished" type="object" string="Zakończono" class="btn-secondary"/>
+                    <button name="action_create_invoice" type="object" string="Faktura 1 klik" class="btn-primary"/>
+                    <button name="action_duplicate_previous_for_partner" type="object" string="Powiel poprzednie" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="inst24-offline-indicator">Tryb offline: bufor aktywny / retry sync dostępny</div>
+                    <div class="inst24-grid">
+                        <group>
+                            <field name="name"/>
+                            <field name="service_template_id"/>
+                            <field name="partner_id"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="address"/>
+                            <field name="google_maps_url" widget="url" readonly="1"/>
+                            <field name="whatsapp_url" widget="url" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="planned_start"/>
+                            <field name="start_time" readonly="1"/>
+                            <field name="end_time" readonly="1"/>
+                            <field name="duration" readonly="1"/>
+                            <field name="travel_km"/>
+                            <field name="payment_status"/>
+                            <field name="margin_alert" readonly="1"/>
+                        </group>
+                    </div>
+                    <notebook>
+                        <page string="Realizacja">
+                            <field name="description"/>
+                            <field name="notes" placeholder="Notatki z wizyty"/>
+                            <field name="voice_note_placeholder"/>
+                        </page>
+                        <page string="Materiały">
+                            <field name="material_line_ids" context="{'default_job_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="purchase_price"/>
+                                    <field name="line_cost"/>
+                                </tree>
+                            </field>
+                            <field name="materials_used" readonly="1"/>
+                        </page>
+                        <page string="Zdjęcia i podpis">
+                            <field name="photos_before" widget="many2many_binary" options="{'accepted_file_extensions': 'image/*'}"/>
+                            <field name="photos_after" widget="many2many_binary" options="{'accepted_file_extensions': 'image/*'}"/>
+                            <field name="customer_signature" widget="image"/>
+                        </page>
+                        <page string="Rentowność">
+                            <group>
+                                <field name="revenue_amount" readonly="1"/>
+                                <field name="cost_amount" readonly="1"/>
+                                <field name="profit_amount" readonly="1"/>
+                                <field name="margin_percent" readonly="1"/>
+                            </group>
+                        </page>
+                        <page string="Cykliczność">
+                            <field name="recurring"/>
+                            <field name="recurring_interval_months" invisible="not recurring"/>
+                            <field name="next_recurring_date" invisible="not recurring"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <button name="action_mark_done" type="object" string="Zakończ zlecenie" class="btn-success inst24-floating-finish"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_field_job_pivot" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.pivot</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="arch" type="xml">
+            <pivot string="Raporty terenowe">
+                <field name="partner_id" type="row"/>
+                <field name="service_template_id" type="row"/>
+                <field name="profit_amount" type="measure"/>
+                <field name="revenue_amount" type="measure"/>
+                <field name="duration" type="measure"/>
+                <field name="travel_km" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_field_job_graph" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.graph</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="arch" type="xml">
+            <graph string="Rentowność" type="bar">
+                <field name="partner_id"/>
+                <field name="profit_amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

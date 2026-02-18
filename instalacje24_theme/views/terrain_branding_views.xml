@@ -1,0 +1,15 @@
+<odoo>
+    <record id="view_instalacje24_field_job_form_branding" model="ir.ui.view">
+        <field name="name">instalacje24.field.job.form.branding</field>
+        <field name="model">instalacje24.field.job</field>
+        <field name="inherit_id" ref="instalacje24_terrain.view_instalacje24_field_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="i24-tablet-header">
+                    <img src="/web/image/res.company/1/logo" alt="Instalacje24" class="i24-tablet-logo"/>
+                    <span class="i24-tablet-title">Tryb terenowy • Instalacje24</span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

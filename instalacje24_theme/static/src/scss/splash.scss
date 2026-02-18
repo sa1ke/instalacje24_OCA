@@ -1,0 +1,33 @@
+.i24-splash-screen {
+  background: #0E3A53;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: i24FadeIn 1.5s ease;
+}
+
+.i24-splash-logo {
+  max-height: 90px;
+  z-index: 2;
+  animation: i24LogoPulse 1.2s ease-in-out;
+}
+
+.i24-splash-drop {
+  width: 46px;
+  height: 64px;
+  border-radius: 60% 60% 75% 75%;
+  background: rgba(45, 179, 232, 0.35);
+  position: absolute;
+  animation: i24Drop 1.2s infinite ease-in-out;
+}
+
+@keyframes i24FadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes i24LogoPulse { 0% { transform: scale(.9); } 100% { transform: scale(1); } }
+@keyframes i24Drop {
+  0% { transform: translateY(-8px); opacity: .35; }
+  50% { transform: translateY(8px); opacity: .75; }
+  100% { transform: translateY(-8px); opacity: .35; }
+}

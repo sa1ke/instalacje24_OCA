@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_instalacje24_photo_portfolio_kanban" model="ir.ui.view">
+        <field name="name">instalacje24.photo.portfolio.kanban</field>
+        <field name="model">instalacje24.photo.portfolio</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div><field name="partner_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_instalacje24_photo_portfolio_form" model="ir.ui.view">
+        <field name="name">instalacje24.photo.portfolio.form</field>
+        <field name="model">instalacje24.photo.portfolio</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="job_id"/>
+                        <field name="partner_id"/>
+                    </group>
+                    <group>
+                        <field name="image_before" widget="image"/>
+                        <field name="image_after" widget="image"/>
+                    </group>
+                    <field name="note"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_instalacje24_photo_portfolio" model="ir.actions.act_window">
+        <field name="name">Portfolio zdjęć</field>
+        <field name="res_model">instalacje24.photo.portfolio</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+</odoo>

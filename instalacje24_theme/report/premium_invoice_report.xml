@@ -1,0 +1,25 @@
+<odoo>
+    <template id="report_invoice_document_premium_light" inherit_id="account.report_invoice_document">
+        <xpath expr="//h2" position="replace">
+            <div class="i24-report-header i24-light">
+                <img src="/web/image/res.company/1/logo" alt="Logo" class="i24-report-logo"/>
+                <h2>Faktura premium</h2>
+            </div>
+        </xpath>
+        <xpath expr="//table[contains(@class, 'table')][1]" position="before">
+            <h4 class="i24-section-title">Materiały i usługi</h4>
+        </xpath>
+        <xpath expr="//div[contains(@id,'total')]" position="before">
+            <div class="i24-report-block">
+                <h4 class="i24-section-title">Gwarancja i serwis</h4>
+                <p>Gwarancja zgodnie z kartą zlecenia. Kod QR płatności zgodny z kolorami marki.</p>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="report_invoice_document_premium_dark" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[contains(@class,'page')][1]" position="attributes">
+            <attribute name="class" add="i24-report-dark" separator=" "/>
+        </xpath>
+    </template>
+</odoo>

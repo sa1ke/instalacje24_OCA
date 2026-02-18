@@ -1,0 +1,28 @@
+<odoo>
+    <record id="view_partner_form_instalacje24" model="ir.ui.view">
+        <field name="name">res.partner.form.instalacje24</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/div[@name='button_box']" position="inside">
+                <button type="object" name="action_view_field_jobs" class="oe_stat_button" icon="fa-wrench">
+                    <field name="field_job_count" widget="statinfo" string="Wizyty"/>
+                </button>
+                <button type="object" name="action_view_warranties" class="oe_stat_button" icon="fa-shield">
+                    <field name="warranty_count" widget="statinfo" string="Gwarancje"/>
+                </button>
+                <button type="object" name="action_view_complaints" class="oe_stat_button" icon="fa-exclamation-triangle">
+                    <field name="complaint_count" widget="statinfo" string="Reklamacje"/>
+                </button>
+            </xpath>
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Instalacje24">
+                    <group>
+                        <field name="seasonal_reminder"/>
+                        <field name="seasonal_reminder_month" invisible="not seasonal_reminder"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+<odoo>
+    <record id="res_config_settings_view_form_instalacje24" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.instalacje24</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app string="Instalacje24" name="instalacje24">
+                    <block title="Cennik domyślny">
+                        <setting string="Stawka roboczogodziny"><field name="instalacje24_hourly_rate"/></setting>
+                        <setting string="Stawka dojazdu"><field name="instalacje24_travel_rate"/></setting>
+                        <setting string="Marża domyślna"><field name="instalacje24_margin_percent"/></setting>
+                        <setting string="VAT domyślny"><field name="instalacje24_vat_percent"/></setting>
+                        <setting string="Szybka naprawa (przycisk)"><field name="instalacje24_quick_price_repair"/></setting>
+                        <setting string="Serwis kotła (przycisk)"><field name="instalacje24_quick_price_boiler"/></setting>
+                        <setting string="Montaż instalacji (przycisk)"><field name="instalacje24_quick_price_installation"/></setting>
+                    </block>
+                    <block title="Estimator instalacji">
+                        <setting string="Koszt materiału / m2"><field name="instalacje24_estimator_base_m2"/></setting>
+                        <setting string="Dodatkowy koszt łazienki"><field name="instalacje24_estimator_bathroom_factor"/></setting>
+                        <setting string="Dodatkowy koszt kondygnacji"><field name="instalacje24_estimator_floor_factor"/></setting>
+                        <setting string="Roboczogodziny / m2"><field name="instalacje24_estimator_labor_per_m2"/></setting>
+                    </block>
+                    <block title="Alerty">
+                        <setting string="Minimalna marża alert %"><field name="instalacje24_min_margin_percent"/></setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+</odoo>

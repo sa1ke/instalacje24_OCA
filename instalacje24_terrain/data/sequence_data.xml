@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_instalacje24_warranty" model="ir.sequence">
+        <field name="name">Instalacje24 Warranty</field>
+        <field name="code">instalacje24.warranty</field>
+        <field name="prefix">GW/%(year)s/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>
