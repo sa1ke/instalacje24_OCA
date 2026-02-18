@@ -74,7 +74,7 @@ On clean databases, menu XML referenced actions that were not loaded yet.
 
 ### Fix
 - Kept XML IDs unchanged (data compatibility).
-- Reordered `instalacje24_terrain` manifest data load so action/view files load before `menu_views.xml`.
+- Reordered both `instalacje24_terrain` and `instalacje24_office` manifest data load so action/view files load before `menu_views.xml` (menus now load last).
 - Bumped module version to `17.0.2.1.0`.
 
 ### Safe upgrade steps
